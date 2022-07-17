@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="59d2ed1b-634d-4176-9bfe-047430c2e85a" name="Default Changelist" comment="hamad">
+    <list default="true" id="59d2ed1b-634d-4176-9bfe-047430c2e85a" name="Default Changelist" comment="Hamad">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/click-predict.html" beforeDir="false" afterPath="$PROJECT_DIR$/click-predict.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monitoring.html" beforeDir="false" afterPath="$PROJECT_DIR$/monitoring.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music.html" beforeDir="false" afterPath="$PROJECT_DIR$/music.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +48,7 @@
       <workItem from="1656746375756" duration="216000" />
       <workItem from="1657700624391" duration="333000" />
       <workItem from="1657962633089" duration="965000" />
-      <workItem from="1658073944288" duration="3824000" />
+      <workItem from="1658073944288" duration="5882000" />
     </task>
     <task id="LOCAL-00001" summary="hamad">
       <created>1656744492411</created>
@@ -55,7 +57,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656744492411</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Hamad">
+      <created>1658078327451</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1658078327451</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -75,6 +84,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="hamad" />
-    <option name="LAST_COMMIT_MESSAGE" value="hamad" />
+    <MESSAGE value="Hamad" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hamad" />
   </component>
 </project>
