@@ -18,7 +18,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco_navbar ftco-navbar-light" id="ftco-navbar">
     <div class="container d-flex align-items-center">
-        <a class="navbar-brand" style="font-family: 'Shadows Into Light', cursive;" href="index.html">Facial Sentiment
+        <a class="navbar-brand" style="font-family: 'Shadows Into Light', cursive;" href="index.php">Facial Sentiment
             Analyzer</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                 aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,12 +26,12 @@
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a href="index.html" class="nav-link pl-0">Home</a></li>
-                <li class="nav-item"><a href="click-predict.html" class="nav-link">Click & Predict</a></li>
-                <li class="nav-item active"><a href="monitoring.html" class="nav-link">Intelligent Monitoring</a></li>
-                <li class="nav-item"><a href="music.html" class="nav-link">Music for Mood</a></li>
-                <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="index.php" class="nav-link pl-0">Home</a></li>
+                <li class="nav-item"><a href="click-predict.php" class="nav-link">Click & Predict</a></li>
+                <li class="nav-item active"><a href="monitoring.php" class="nav-link">Intelligent Monitoring</a></li>
+                <li class="nav-item"><a href="music.php" class="nav-link">Music for Mood</a></li>
+                <li class="nav-item"><a href="blog.php" class="nav-link">Blog</a></li>
+                <li class="nav-item"><a href="about.php" class="nav-link">About</a></li>
             </ul>
         </div>
     </div>
@@ -42,16 +42,17 @@
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center">
                 <h1 class="mb-2 bread">Intelligent Monitoring</h1>
-                <p class="breadcrumbs"><span class="mr-2"><a href="index-2.html">Home <i
-                        class="ion-ios-arrow-forward"></i></a></span> <span>Monitoring <i
-                        class="ion-ios-arrow-forward"></i></span></p>
+                <p class="breadcrumbs"><span class="mr-2"><a href="index.php">Home <i
+                        class="ion-ios-arrow-forward"></i></a></span> <a href="monitoring.php"><span>Monitoring <i
+                        class="ion-ios-arrow-forward"></i></span></a></p>
             </div>
         </div>
     </div>
 </section>
-<section class="ftco-section">
+<section class="ftco-section ftco-no-pb">
     <div class="container">
         <div class="row">
+            <div class="col-md-3"></div>
             <div class="col-md-6 course d-lg-flex ftco-animate">
                 <div class="img" style="background-image:url(images/xcourse-1.jpg.pagespeed.ic.cfYJuZCQDo.jpg)"></div>
                 <div class="text bg-light p-4">
@@ -61,50 +62,45 @@
                         necessary regelialia. It is a paradisematic country</p>
                 </div>
             </div>
+            <div class="col-md-3"></div>
+        </div>
+        <div class="row" style="display: none">
+            <div class="col-md-3"></div>
             <div class="col-md-6 course d-lg-flex ftco-animate">
-                <div class="img" style="background-image:url(images/xcourse-2.jpg.pagespeed.ic.__XhysO8a_.jpg)"></div>
+                <div class="img" style="background-image:url(images/xcourse-1.jpg.pagespeed.ic.cfYJuZCQDo.jpg)"></div>
                 <div class="text bg-light p-4">
-                    <h3><a href="#">Language Lesson</a></h3>
+                    <h3><a href="#">Arts Lesson</a></h3>
                     <p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
                     <p>Separated they live in. A small river named Duden flows by their place and supplies it with the
                         necessary regelialia. It is a paradisematic country</p>
                 </div>
             </div>
-            <div class="col-md-6 course d-lg-flex ftco-animate">
-                <div class="img" style="background-image:url(images/xcourse-3.jpg.pagespeed.ic.p0O3qpeYCN.jpg)"></div>
-                <div class="text bg-light p-4">
-                    <h3><a href="#">Music Lesson</a></h3>
-                    <p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
-                    <p>Separated they live in. A small river named Duden flows by their place and supplies it with the
-                        necessary regelialia. It is a paradisematic country</p>
-                </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+</section>
+<section class="ftco-gallery">
+    <div class="container-wrap">
+        <div class="row no-gutters">
+            <div class="col-md-3 ftco-animate">
+                <span class="gallery img d-flex align-items-center"
+                      style="background-image:url(images/happy-girl.jpg)">
+                </span>
             </div>
-            <div class="col-md-6 course d-lg-flex ftco-animate">
-                <div class="img" style="background-image:url(images/xcourse-4.jpg.pagespeed.ic.JyQ70Miuav.jpg)"></div>
-                <div class="text bg-light p-4">
-                    <h3><a href="#">Sports Lesson</a></h3>
-                    <p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
-                    <p>Separated they live in. A small river named Duden flows by their place and supplies it with the
-                        necessary regelialia. It is a paradisematic country</p>
-                </div>
+            <div class="col-md-3 ftco-animate">
+                <span class="gallery img d-flex align-items-center"
+                      style="background-image:url(images/sleepy-man.jpg)">
+                </span>
             </div>
-            <div class="col-md-6 course d-lg-flex ftco-animate">
-                <div class="img" style="background-image:url(images/xcourse-5.jpg.pagespeed.ic.MTATfA6Mt4.jpg)"></div>
-                <div class="text bg-light p-4">
-                    <h3><a href="#">Study Lesson</a></h3>
-                    <p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
-                    <p>Separated they live in. A small river named Duden flows by their place and supplies it with the
-                        necessary regelialia. It is a paradisematic country</p>
-                </div>
+            <div class="col-md-3 ftco-animate">
+                <span class="gallery img d-flex align-items-center"
+                      style="background-image:url(images/shocked-man.jpg)">
+                </span>
             </div>
-            <div class="col-md-6 course d-lg-flex ftco-animate">
-                <div class="img" style="background-image:url(images/xcourse-6.jpg.pagespeed.ic.fThG5x4oxv.jpg)"></div>
-                <div class="text bg-light p-4">
-                    <h3><a href="#">Experiment Lesson</a></h3>
-                    <p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
-                    <p>Separated they live in. A small river named Duden flows by their place and supplies it with the
-                        necessary regelialia. It is a paradisematic country</p>
-                </div>
+            <div class="col-md-3 ftco-animate">
+                <span class="gallery img d-flex align-items-center"
+                      style="background-image:url(images/angry-girl.jpg)">
+                </span>
             </div>
         </div>
     </div>
@@ -122,7 +118,7 @@
                             <li><a href="#"><span class="icon icon-phone"></span><span
                                     class="text">+92 300 1234567</span></a></li>
                             <li><a href="#"><span class="icon icon-envelope"></span><span class="text"><span
-                                    class="__cf_email__" data-cfemail="254c4b434a655c4a5057414a48444c4b0b464a48">[181370137@gift.edu.pk]</span></span></a>
+                                    class="__cf_email__" data-cfemail="f39a9d959cb38a9c8681979c9e929a9ddd909c9e">[181370137@gift.edu.pkover]</span></span></a>
                             </li>
                         </ul>
                     </div>
@@ -132,11 +128,12 @@
                 <div class="ftco-footer-widget mb-5 ml-md-4">
                     <h2 class="ftco-heading-2">Links</h2>
                     <ul class="list-unstyled">
-                        <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Home</a></li>
-                        <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>About</a></li>
-                        <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Services</a></li>
-                        <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Deparments</a></li>
-                        <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Contact</a></li>
+                        <li><a href="index.php"><span class="ion-ios-arrow-round-forward mr-2"></span>Home</a></li>
+                        <li><a href="click-predict.php"><span class="ion-ios-arrow-round-forward mr-2"></span>Click & Predict</a></li>
+                        <li><a href="monitoring.php"><span class="ion-ios-arrow-round-forward mr-2"></span>Deparments</a></li>
+                        <li><a href="blog.php"><span class="ion-ios-arrow-round-forward mr-2"></span>Contact</a></li>
+                        <li><a href="music.php"><span class="ion-ios-arrow-round-forward mr-2"></span>Contact</a></li>
+                        <li><a href="about.php"><span class="ion-ios-arrow-round-forward mr-2"></span>About</a></li>
                     </ul>
                 </div>
             </div>
@@ -150,27 +147,11 @@
                         </div>
                     </form>
                 </div>
-                <div class="ftco-footer-widget mb-5">
-                    <h2 class="ftco-heading-2 mb-0">Connect With Us</h2>
-                    <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
-                        <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                        <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                        <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-                    </ul>
-                </div>
             </div>
         </div>
     </div>
 </footer>
 
-
-<div id="ftco-loader" class="show fullscreen">
-    <svg class="circular" width="48px" height="48px">
-        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
-        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
-                stroke="#F96D00"/>
-    </svg>
-</div>
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery-migrate-3.0.1.min.js%2bpopper.min.js%2bbootstrap.min.js.pagespeed.jc.6rS3Cn6ZxM.js"></script>
 <script>eval(mod_pagespeed_YgNxllFXD4);</script>

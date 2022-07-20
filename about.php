@@ -17,7 +17,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco_navbar ftco-navbar-light" id="ftco-navbar">
     <div class="container d-flex align-items-center">
-        <a class="navbar-brand" style="font-family: 'Shadows Into Light', cursive;" href="index.html">Facial Sentiment
+        <a class="navbar-brand" style="font-family: 'Shadows Into Light', cursive;" href="index.php">Facial Sentiment
             Analyzer</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                 aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,12 +25,12 @@
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a href="index.html" class="nav-link pl-0">Home</a></li>
-                <li class="nav-item"><a href="click-predict.html" class="nav-link">Click & Predict</a></li>
-                <li class="nav-item"><a href="monitoring.html" class="nav-link">Intelligent Monitoring</a></li>
-                <li class="nav-item"><a href="music.html" class="nav-link">Music for Mood</a></li>
-                <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-                <li class="nav-item active"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="index.php" class="nav-link pl-0">Home</a></li>
+                <li class="nav-item"><a href="click-predict.php" class="nav-link">Click & Predict</a></li>
+                <li class="nav-item"><a href="monitoring.php" class="nav-link">Intelligent Monitoring</a></li>
+                <li class="nav-item"><a href="music.php" class="nav-link">Music for Mood</a></li>
+                <li class="nav-item"><a href="blog.php" class="nav-link">Blog</a></li>
+                <li class="nav-item active"><a href="about.php" class="nav-link">About</a></li>
             </ul>
         </div>
     </div>
@@ -41,9 +41,9 @@
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center">
                 <h1 class="mb-2 bread">About Us</h1>
-                <p class="breadcrumbs"><span class="mr-2"><a href="index-2.html">Home <i
-                        class="ion-ios-arrow-forward"></i></a></span> <span>About us <i
-                        class="ion-ios-arrow-forward"></i></span></p>
+                <p class="breadcrumbs"><span class="mr-2"><a href="index.php">Home <i
+                        class="ion-ios-arrow-forward"></i></a></span> <a href="about.php"><span>About<i
+                        class="ion-ios-arrow-forward"></i></span></a></p>
             </div>
         </div>
     </div>
@@ -135,6 +135,93 @@
         </div>
     </div>
 </section>
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-2">
+            <div class="col-md-8 text-center heading-section ftco-animate">
+                <h2 class="mb-4"><span>Related</span> Work</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 course d-lg-flex ftco-animate">
+                <div class="img" style="background-image:url(images/pdf.png); width: 150px; height: 200px"></div>
+                <div class="text bg-light p-4">
+                    <h4>
+                        <a href="https://proceedings.neurips.cc/paper/2016/file/b73dfe25b4b8714c029b37a6ad3006fa-Paper.pdf">Doubly
+                            Convolutional Neural Networks</a></h4>
+                    <p class="subheading"><span style="color: black">Shuangfei Zhai , Yu Cheng , Weining Lu , Zhongfei (Mark) Zhang </span>
+                    </p>
+                    <p> In this paper, we propose doubly convolutional neural networks (DCNNs), which significantly
+                        improve the performance
+                        of CNNs by further exploring this idea.</p>
+                </div>
+            </div>
+            <div class="col-md-6 course d-lg-flex ftco-animate">
+                <div class="img" style="background-image:url(images/pdf.png); width: 150px; height: 200px"></div>
+                <div class="text bg-light p-4">
+                    <h4>
+                        <a href="https://www.researchgate.net/publication/317487657_Emotion_recognition_using_facial_expressions">Emotion
+                            Recognition Using Facial Expression</a></h4>
+                    <p class="subheading"><span style="color: black">Pawel Tarnowski , Marcin Kolodziej , Andrrzej Majkowski</span>
+                    </p>
+                    <p>In this article there are presented the result of recognition of seven emotional states based on
+                        facial expression.</p>
+                </div>
+            </div>
+            <div class="col-md-6 course d-lg-flex ftco-animate">
+                <div class="img" style=" background-image:url(images/pdf.png); width: 150px; height: 200px"></div>
+                <div class="text bg-light p-4">
+                    <h4><a href="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.406.8560&rep=rep1&type=pdf">Detecting
+                        Boredom in Meetings</a></h4>
+                    <p class="subheading"><span style="color: black">Stefan Kroes</span></p>
+                    <p> It presents signs of boredom that
+                        where observed from the meeting video corpus from the AMI
+                        project at the University of Twente.</p>
+                </div>
+            </div>
+            <div class="col-md-6 course d-lg-flex ftco-animate">
+                <div class="img" style="background-image:url(images/pdf.png); width: 150px; height: 200px"></div>
+                <div class="text bg-light p-4">
+                    <h4><a href="http://cs230.stanford.edu/projects_winter_2020/reports/32610274.pdf">FER with Deep
+                        Learning</a></h4>
+                    <p class="subheading"><span style="color: black">Amil Khanzada , Charles Bai , Ferhat Turker Celepcikay</span>
+                    </p>
+                    <p>In this paper, we
+                        take a deep dive, implementing multiple deep learning models
+                        for facial expression recognition (FER). Our goals are twofold:
+                        we aim not only to maximize accuracy, but also to apply our
+                        results to the real-world.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ftco-gallery">
+    <div class="container-wrap">
+        <div class="row no-gutters">
+            <div class="col-md-3 ftco-animate">
+                <span class="gallery img d-flex align-items-center"
+                      style="background-image:url(images/happy-girl.jpg)">
+                </span>
+            </div>
+            <div class="col-md-3 ftco-animate">
+                <span class="gallery img d-flex align-items-center"
+                      style="background-image:url(images/sleepy-man.jpg)">
+                </span>
+            </div>
+            <div class="col-md-3 ftco-animate">
+                <span class="gallery img d-flex align-items-center"
+                      style="background-image:url(images/shocked-man.jpg)">
+                </span>
+            </div>
+            <div class="col-md-3 ftco-animate">
+                <span class="gallery img d-flex align-items-center"
+                      style="background-image:url(images/angry-girl.jpg)">
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
 <footer class="ftco-footer ftco-bg-dark ftco-section">
     <div class="container">
         <div class="row mb-5">
@@ -148,7 +235,7 @@
                             <li><a href="#"><span class="icon icon-phone"></span><span
                                     class="text">+92 300 1234567</span></a></li>
                             <li><a href="#"><span class="icon icon-envelope"></span><span class="text"><span
-                                    class="__cf_email__" data-cfemail="254c4b434a655c4a5057414a48444c4b0b464a48">[181370137@gift.edu.pk]</span></span></a>
+                                    class="__cf_email__" data-cfemail="f39a9d959cb38a9c8681979c9e929a9ddd909c9e">[181370137@gift.edu.pkover]</span></span></a>
                             </li>
                         </ul>
                     </div>
@@ -158,11 +245,12 @@
                 <div class="ftco-footer-widget mb-5 ml-md-4">
                     <h2 class="ftco-heading-2">Links</h2>
                     <ul class="list-unstyled">
-                        <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Home</a></li>
-                        <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>About</a></li>
-                        <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Services</a></li>
-                        <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Deparments</a></li>
-                        <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Contact</a></li>
+                        <li><a href="index.php"><span class="ion-ios-arrow-round-forward mr-2"></span>Home</a></li>
+                        <li><a href="click-predict.php"><span class="ion-ios-arrow-round-forward mr-2"></span>Click & Predict</a></li>
+                        <li><a href="monitoring.php"><span class="ion-ios-arrow-round-forward mr-2"></span>Deparments</a></li>
+                        <li><a href="blog.php"><span class="ion-ios-arrow-round-forward mr-2"></span>Contact</a></li>
+                        <li><a href="music.php"><span class="ion-ios-arrow-round-forward mr-2"></span>Contact</a></li>
+                        <li><a href="about.php"><span class="ion-ios-arrow-round-forward mr-2"></span>About</a></li>
                     </ul>
                 </div>
             </div>
@@ -176,26 +264,11 @@
                         </div>
                     </form>
                 </div>
-                <div class="ftco-footer-widget mb-5">
-                    <h2 class="ftco-heading-2 mb-0">Connect With Us</h2>
-                    <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
-                        <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                        <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                        <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-                    </ul>
-                </div>
             </div>
         </div>
     </div>
 </footer>
 
-<div id="ftco-loader" class="show fullscreen">
-    <svg class="circular" width="48px" height="48px">
-        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
-        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
-                stroke="#F96D00"/>
-    </svg>
-</div>
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery-migrate-3.0.1.min.js%2bpopper.min.js%2bbootstrap.min.js.pagespeed.jc.6rS3Cn6ZxM.js"></script>
 <script>eval(mod_pagespeed_YgNxllFXD4);</script>
