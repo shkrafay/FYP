@@ -20,7 +20,7 @@ include 'includes/header.php' ?>
                  data-scrollax-parent="true">
                 <div class="col-md-8 text-center ftco-animate">
                     <h1 class="mb-4">Detect Your<span> Facial Expressions</span></h1>
-                    <p><a href="#" class="btn btn-secondary px-4 py-3 mt-3">Find Now</a></p>
+                    <p><a href="click-predict.php" class="btn btn-secondary px-4 py-3 mt-3">Find Now</a></p>
                 </div>
             </div>
         </div>
@@ -179,22 +179,6 @@ include 'includes/header.php' ?>
         </div>
     </div>
 </section>
-<!--<section class="ftco-intro" style="background-image:url(images/bg_3.jpg)" data-stellar-background-ratio="0.5">-->
-<!--    <div class="overlay"></div>-->
-<!--    <div class="container">-->
-<!--        <div class="row">-->
-<!--            <div class="col-md-9">-->
-<!--                <h2>Teaching Your Child Some Good Manners</h2>-->
-<!--                <p class="mb-0">A small river named Duden flows by their place and supplies it with the necessary-->
-<!--                    regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your-->
-<!--                    mouth.</p>-->
-<!--            </div>-->
-<!--            <div class="col-md-3 d-flex align-items-center">-->
-<!--                <p class="mb-0"><a href="#" class="btn btn-secondary px-4 py-3">Take a Course</a></p>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</section>-->
 <section class="ftco-section ftco-no-pb">
     <div class="container">
         <div class="row justify-content-center mb-5 pb-2">
@@ -408,20 +392,20 @@ include 'includes/header.php' ?>
         </div>
     </div>
 </section>
-<section class="ftco-section ftco-counter img" id="section-counter" style="background-image:url(images/18300.jpg)"
+<section class="ftco-section ftco-counter img" id="section-counter" style="background-image:url(images/18300.jpg); background-attachment: fixed;"
          data-stellar-background-ratio="0.5">
     <div class="container">
         <div class="row justify-content-center mb-5 pb-2">
             <div class="col-md-8 text-center heading-section heading-section-black ftco-animate">
-                <h2 class="mb-4"><span>Our</span> Models</h2>
-                <p>These are our two models that classify the human expression.</p>
+                <h2 class="mb-4" style="color: #fda638"><span>Our</span> Models</h2>
+                <p>These are our two models that classify the human expressions.</p>
             </div>
         </div>
         <div class="row d-md-flex align-items-center justify-content-center">
             <div class="col-lg-12">
                 <div class="row d-md-flex align-items-center">
                     <div>
-                        <div class="text"><span><h2>CCN</h2></span></div>
+                        <div class="text"><span><h2 class="font-weight-bold" style="color: #fda638">CCN</h2></span></div>
                         <div class="text"><span>(Drowsiness Detection)</span></div>
                     </div>
 
@@ -429,9 +413,9 @@ include 'includes/header.php' ?>
                         <div class="block-18">
 
                             <div class="icon"><span class="flaticon-doctor"></span></div>
-                            <div class="text">
+                            <div class="text" >
                                 <strong class="number" data-number="94">0</strong>
-                                <span>Accuracy</span>
+                                <span class="font-weight-bold">Accuracy</span>
                             </div>
                         </div>
                     </div>
@@ -440,7 +424,7 @@ include 'includes/header.php' ?>
                             <div class="icon"><span class="flaticon-doctor"></span></div>
                             <div class="text">
                                 <strong class="number" data-number="90">0</strong>
-                                <span>Precision</span>
+                                <span class="font-weight-bold" >Precision</span>
                             </div>
                         </div>
                     </div>
@@ -449,7 +433,7 @@ include 'includes/header.php' ?>
                             <div class="icon"><span class="flaticon-doctor"></span></div>
                             <div class="text">
                                 <strong class="number" data-number="99">0</strong>
-                                <span>Recall</span>
+                                <span class="font-weight-bold">Recall</span>
                             </div>
                         </div>
                     </div>
@@ -458,7 +442,7 @@ include 'includes/header.php' ?>
                             <div class="icon"><span class="flaticon-doctor"></span></div>
                             <div class="text">
                                 <strong class="number" data-number="93">0</strong>
-                                <span>F1 Score</span>
+                                <span class="font-weight-bold">F1 Score</span>
                             </div>
                         </div>
                     </div>
@@ -469,7 +453,7 @@ include 'includes/header.php' ?>
             <div class="col-lg-12">
                 <div class="row d-md-flex align-items-center">
                     <div>
-                        <div class="text"><span><h2>DCCN</h2></span></div>
+                        <div class="text"><span><h2 class="font-weight-bold" style="color: #fda638">DCCN</h2></span></div>
                         <div class="text"><span>(Emotion Detection)</span></div>
                     </div>
 
@@ -478,7 +462,7 @@ include 'includes/header.php' ?>
                             <div class="icon"><span class="flaticon-doctor"></span></div>
                             <div class="text">
                                 <strong class="number" data-number="78">0</strong>
-                                <span>Accuracy</span>
+                                <span class="font-weight-bold">Accuracy</span>
                             </div>
                         </div>
                     </div>
@@ -487,7 +471,7 @@ include 'includes/header.php' ?>
                             <div class="icon"><span class="flaticon-doctor"></span></div>
                             <div class="text">
                                 <strong class="number" data-number="77">0</strong>
-                                <span>Precision</span>
+                                <span class="font-weight-bold">Precision</span>
                             </div>
                         </div>
                     </div>
@@ -496,7 +480,7 @@ include 'includes/header.php' ?>
                             <div class="icon"><span class="flaticon-doctor"></span></div>
                             <div class="text">
                                 <strong class="number" data-number="75">0</strong>
-                                <span>Recall</span>
+                                <span class="font-weight-bold">Recall</span>
                             </div>
                         </div>
                     </div>
@@ -505,7 +489,7 @@ include 'includes/header.php' ?>
                             <div class="icon"><span class="flaticon-doctor"></span></div>
                             <div class="text">
                                 <strong class="number" data-number="79">0</strong>
-                                <span>F1 Score</span>
+                                <span class="font-weight-bold">F1 Score</span>
                             </div>
                         </div>
                     </div>

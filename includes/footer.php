@@ -49,7 +49,7 @@
                     <ul class="list-unstyled">
                         <li><a href="index.php"><span class="ion-ios-arrow-round-forward mr-2"></span>Home</a></li>
                         <li><a href="click-predict.php"><span class="ion-ios-arrow-round-forward mr-2"></span>Click & Predict</a></li>
-                        <li><a href="monitoring.php"><span class="ion-ios-arrow-round-forward mr-2"></span>Deparments</a></li>
+                        <li><a href="monitoring.php"><span class="ion-ios-arrow-round-forward mr-2"></span>Monitoring</a></li>
                         <li><a href="blog.php"><span class="ion-ios-arrow-round-forward mr-2"></span>Contact</a></li>
                         <li><a href="music.php"><span class="ion-ios-arrow-round-forward mr-2"></span>Contact</a></li>
                         <li><a href="about.php"><span class="ion-ios-arrow-round-forward mr-2"></span>About</a></li>

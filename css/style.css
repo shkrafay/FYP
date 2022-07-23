@@ -6783,7 +6783,7 @@ textarea.form-control {
 }
 
 .ftco-section {
-    padding: 7em 0;
+    padding: 7em 0 0 0;
     position: relative;
 }
 
@@ -7288,7 +7288,7 @@ textarea.form-control {
 .ftco-counter .text strong.number {
     font-weight: 500;
     font-size: 50px;
-    color: #1eaaf1;
+    color: #5f5ec6;
     display: block;
 }
 
