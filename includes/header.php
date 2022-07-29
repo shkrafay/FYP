@@ -15,38 +15,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
           integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
-
-    <style>
-        #video {
-            border: 1px solid black;
-            box-shadow: 2px 2px 3px black;
-            width:400px;
-            height:300px;
-        }
-
-        #photo {
-            border: 1px solid black;
-            box-shadow: 2px 2px 3px black;
-            width:400px;
-            height:300px;
-        }
-
-        #canvas {
-            display:none;
-        }
-
-        .camera {
-            width: 340px;
-            display:inline-block;
-        }
-
-        .output {
-            width: 340px;
-            display:inline-block;
-            vertical-align: top;
-        }
-
-    </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco_navbar ftco-navbar-light" id="ftco-navbar">

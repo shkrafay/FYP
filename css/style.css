@@ -3538,6 +3538,61 @@ img.mfp-img {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
+@media (min-width: 576px) {
+    .float-sm-left {
+        float: left !important
+    }
+
+    .float-sm-right {
+        float: right !important
+    }
+
+    .float-sm-none {
+        float: none !important
+    }
+}
+
+@media (min-width: 768px) {
+    .float-md-left {
+        float: left !important
+    }
+
+    .float-md-right {
+        float: right !important
+    }
+
+    .float-md-none {
+        float: none !important
+    }
+}
+
+@media (min-width: 992px) {
+    .float-lg-left {
+        float: left !important
+    }
+
+    .float-lg-right {
+        float: right !important
+    }
+
+    .float-lg-none {
+        float: none !important
+    }
+}
+
+@media (min-width: 1200px) {
+    .float-xl-left {
+        float: left !important
+    }
+
+    .float-xl-right {
+        float: right !important
+    }
+
+    .float-xl-none {
+        float: none !important
+    }
+}
 
 html {
     font-family: sans-serif;
@@ -6251,7 +6306,8 @@ h1, h2, h3, h4,
 
 .btn.btn-secondary:hover, .btn.btn-secondary:focus, .btn.btn-secondary:active {
     border: 1px solid #fda638;
-    color: #fff;
+    background: #fff;
+    color: #fda638;
 }
 
 .btn.btn-tertiary {
@@ -6262,7 +6318,8 @@ h1, h2, h3, h4,
 
 .btn.btn-tertiary:hover, .btn.btn-tertiary:focus, .btn.btn-tertiary:active {
     border: 1px solid #8cc152;
-    color: #fff;
+    color: #8cc152;
+    background: #fff;
 }
 
 .btn.btn-quarternary {
@@ -6273,7 +6330,8 @@ h1, h2, h3, h4,
 
 .btn.btn-quarternary:hover, .btn.btn-quarternary:focus, .btn.btn-quarternary:active {
     border: 1px solid #f1453d;
-    color: #fff;
+    color: #f1453d;
+    background-color: #fff;
 }
 
 .wrap-about {
