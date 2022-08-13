@@ -1,5 +1,81 @@
 <?php $page = 'click';
 include 'includes/header.php' ?>
+    <style>
+        spinner-border {
+
+        to {
+            transform: rotate(360deg)
+        }
+
+        }
+        @keyframes spinner-border {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        .spinner-border {
+            display: inline-block;
+            width: 2rem;
+            height: 2rem;
+            vertical-align: -.125em;
+            border: .25em solid currentColor;
+            border-right-color: transparent;
+            border-radius: 50%;
+            -webkit-animation: .75s linear infinite spinner-border;
+            animation: .75s linear infinite spinner-border
+        }
+
+        .spinner-border-sm {
+            width: 1rem;
+            height: 1rem;
+            border-width: .2em
+        }
+
+        @-webkit-keyframes spinner-grow {
+            0% {
+                transform: scale(0)
+            }
+            50% {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        @keyframes spinner-grow {
+            0% {
+                transform: scale(0)
+            }
+            50% {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        .spinner-grow {
+            display: inline-block;
+            width: 2rem;
+            height: 2rem;
+            vertical-align: -.125em;
+            background-color: currentColor;
+            border-radius: 50%;
+            opacity: 0;
+            -webkit-animation: .75s linear infinite spinner-grow;
+            animation: .75s linear infinite spinner-grow
+        }
+
+        .spinner-grow-sm {
+            width: 1rem;
+            height: 1rem
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .spinner-border, .spinner-grow {
+                -webkit-animation-duration: 1.5s;
+                animation-duration: 1.5s
+            }
+        }
+    </style>
     <section class="hero-wrap hero-wrap-2" style="background-image:url(images/selfie-1.jpg)">
         <div class="overlay"></div>
         <div class="container">
@@ -29,8 +105,16 @@ include 'includes/header.php' ?>
                                 an Image
                             </button>
                         </div>
+                        <style>
+                            input[type="file"] {
+                                display: none;
+                            }
+                        </style>
                         <div class="col-md-6 mb-3">
-                            <button class="text-center btn btn-secondary px-4 py-2">Upload Image</button>
+                            <label class="text-center btn btn-secondary px-4 py-2" >
+                                <input type="file" accept="image/png, image/gif, image/jpeg">
+                                <i class="fa fa-cloud-upload"></i> Custom Upload
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -39,7 +123,8 @@ include 'includes/header.php' ?>
                         <div class="output">
                             <img id="photo" alt="The screen capture will appear in this box.">
                         </div>
-                    </canvas>
+                    </canvas><p style="display: none" id="loader">loading...</p>
+
                     <button style="position: absolute; object-fit: cover; margin-left: -300px; margin-top: 306px"
                             class="text-center btn btn-tertiary px-3" id="check-expression">Check Expressions
                     </button>
@@ -57,8 +142,11 @@ include 'includes/header.php' ?>
         let video = document.querySelector("#video");
         let click_button = document.querySelector("#click-photo");
         let canvas = document.querySelector("#canvas");
+        let twoD = canvas.getContext('2d');
         let check_expression = document.querySelector("#check-expression")
         let photo = document.getElementById('photo');
+        let class_labels = ['Disgust', 'Angry', 'Happy', 'Sad', 'Surprise', 'Neutral']
+        let drowsy = ['Active','Drowsy']
 
         camera_button.addEventListener('click', async function () {
             document.getElementById("vide-sec").style.display = "block";
@@ -69,25 +157,16 @@ include 'includes/header.php' ?>
 
         click_button.addEventListener('click', function () {
             document.getElementById("div-canvas").style.display = "block";
-            canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+            twoD.drawImage(video, 0, 0, canvas.width, canvas.height);
             image_data_url = canvas.toDataURL('image/jpeg').replace("image/png", "image/octet-stream");
-            console.log(image_data_url);
             stream.getTracks()[0].stop();
             document.getElementById("vide-sec").style.display = "none"
-            // let image = photo.src;
-            // console.log(image);
-            // data url of the image
-            // console.log(image_data_url);
-
         });
         check_expression.addEventListener('click', function () {
-            // fileData = dataURLtoFile(image_data_url, "imageName.jpg");
-            // console.log("Here is JavaScript File Object",fileData)
+            document.getElementById("loader").style.display="block";
             const blob = dataURItoBlob(image_data_url);
-            const data = sendData("http://3.82.119.56:8000/api/getfaceslist/", blob);
+            const data = sendData("http://54.197.39.75:8000/api/getfaceslist/", blob);
             console.log(data);
-            // uploadPicture()
-            // downloadImage(image_data_url,"myfile.jpg")
         });
 
 
@@ -108,114 +187,42 @@ include 'includes/header.php' ?>
                 ia[i] = byteString.charCodeAt(i);
             }
 
-            return new Blob([ia], {type:mimeString});
+            return new Blob([ia], {type: mimeString});
         }
+
         async function sendData(url, data) {
-            const formData  = new FormData();
+            const formData = new FormData();
             formData.append("image", data);
 
-             await fetch(url, {
+            await fetch(url, {
                 dataType: 'file',
                 contentType: 'multipart/form-data',
                 processData: false,
                 method: 'POST',
                 body: formData
-            }).then(r => {
-                 document.getElementById('res').value = r;
-             });
-        }
+            }).then(r =>
+                r.json()
+            ).then(d=>{
+                console.log(d);
 
-        // var download = function(uri, filename, callback){
-        //     request.head(uri, function(err, res, body){
-        //         console.log('content-type:', res.headers['content-type']);
-        //         console.log('content-length:', res.headers['content-length']);
-        //
-        //         request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
-        //     });
-        // };
-        //
-        // download('https://www.google.com/images/srpr/logo3w.png', 'google.png', function(){
-        //     console.log('done');
-        // });
+                // const prev=JSON.parse(localStorage.getItem("image"))
+                // localStorage.setItem("image",JSON.stringify([...prev,...d]))
 
-        // function downloadImage(data, filename = 'untitled.jpg') {
-        //     var a = document.createElement('a');
-        //     a.href = data;
-        //     a.download = filename;
-        //     document.body.appendChild(a);
-        //     a.click();
-        // }
-        //
-        // function dataURLtoFile(dataurl, filename) {
-        //     var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
-        //         bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
-        //     while(n--){
-        //         u8arr[n] = bstr.charCodeAt(n);
-        //     }
-        //     return new File([u8arr], filename, {type:mime});
-        // }
-
-        // function dataURItoBlob(dataURI) {
-        //     // convert base64/URLEncoded data component to raw binary data held in a string
-        //     var byteString;
-        //     if (dataURI.split(',')[0].indexOf('base64') >= 0)
-        //         byteString = atob(dataURI.split(',')[1]);
-        //     else
-        //         byteString = unescape(dataURI.split(',')[1]);
-        //
-        //     // separate out the mime component
-        //     var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
-        //
-        //     // write the bytes of the string to a typed array
-        //     var ia = new Uint8Array(byteString.length);
-        //     for (var i = 0; i < byteString.length; i++) {
-        //         ia[i] = byteString.charCodeAt(i);
-        //     }
-        //
-        //     return new Blob([ia], {type:mimeString});
-        // }
-
-        function uploadPicture()
-        {
-            //Prepare form data
-            var formData = new FormData();
-            formData.append("image", image);
-            formData.append("language", "eng");
-            callService(formData);
-        }
-
-        function callService(formData)
-
-        {
-            //Send OCR Parsing request asynchronously
-            jQuery.ajax({
-                url: "http://3.82.119.56:8000/api/getfaceslist/",
-                data: formData,
-                dataType: 'file',
-                cache: false,
-                contentType: 'multipart/form-data',
-                processData: false,
-                type: 'POST',
-                success: function (ocrParsedResult) {
-                    //Get the parsed results, exit code and error message and details
-                    console.log("Success!");
-                    var parsedResults = ocrParsedResult["ParsedResults"];
-                    var ocrExitCode = ocrParsedResult["OCRExitCode"];
-                    var isErroredOnProcessing = ocrParsedResult["IsErroredOnProcessing"];
-                    var errorMessage = ocrParsedResult["ErrorMessage"];
-                    var errorDetails = ocrParsedResult["ErrorDetails"];
-                    //If we have got parsed results, then loop over the results to do something
-                    if (parsedResults != null) {
-                        //Uncomment these lines if parsing multiple results
-                        $.each(parsedResults, function (index, value) {
-                            var exitCode = value["FileParseExitCode"];
-                            var parsedText = value["ParsedText"];
-                            var errorMessage = value["ParsedTextFileName"];
-                            var errorDetails = value["ErrorDetails"];
-
-                            console.log(parsedText);
-                        });
-                    }
+                document.getElementById("loader").style.display="none";
+                for(var i=0;i<d.length;i++){
+                    let pred = class_labels[d[i]?.pred]
+                    let detc = drowsy[d[i]?.detc]
+                    let x = d[i]?.coord?.x;
+                    let y = d[i]?.coord?.y
+                    let w = d[i]?.coord?.w;
+                    let h = d[i]?.coord?.h;
+                    twoD.font = "bold 18px verdana, sans-serif "
+                    twoD.fillStyle = "#ff0000";
+                    twoD.fillText(`${pred}, ${detc}`, x, y);
+                    twoD.beginPath();
+                    twoD.rect(x, y, w, h);
+                    twoD.strokeStyle ='#00FF00';
+                    twoD.stroke();
                 }
             });
         }
