@@ -12,7 +12,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Distressed&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css"/>
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css"
-          rel="stylesheet"  type='text/css'>
+          rel="stylesheet" type='text/css'>
+    <style>
+        .heading-font {
+            font-family: 'Rubik Distressed', cursive;
+            color: white
+        }
+
+        .col-md-6 {
+            padding: 0 !important;
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco_navbar ftco-navbar-light" id="ftco-navbar">
@@ -70,7 +80,7 @@
                         }
                     </style>
                     <div class="col-md-6 mb-3">
-                        <label class="text-center btn btn-secondary px-4 py-2" >
+                        <label class="text-center btn btn-secondary px-4 py-2">
                             <input type="file" accept="image/png, image/gif, image/jpeg">
                             <i class="fa fa-cloud-upload"></i> Custom Upload
                         </label>
@@ -82,30 +92,21 @@
                     <div class="output">
                         <img id="photo" alt="The screen capture will appear in this box.">
                     </div>
-                </canvas><p style="display: none" id="loader">loading...</p>
+
+                </canvas>
+                <img style="display: none;width:200px;height:200px;" id="loader" src="images/Loading_icon.gif"
+                     alt="Loading">
 
                 <button style="position: absolute; object-fit: cover; margin-left: -300px; margin-top: 306px"
                         class="text-center btn btn-tertiary px-3" id="check-expression">Check Expressions
                 </button>
             </div>
-            <span id="res"></span>
         </div>
-<!--        <div class="row">-->
-<!--            <div class="col-md-6 col-lg-3 ftco-animate">-->
-<!--                <div class="pricing-entry bg-light pb-4 text-center">-->
-<!--                    <div>-->
-<!--                        <h3 class="mb-3">Basic</h3>-->
-<!--                        <p><span class="price">$24.50</span> <span class="per">/ 5mos</span></p>-->
-<!--                    </div>-->
-<!--                    <div class="img" style="background-image:url(images/xbg_1.jpg.pagespeed.ic.AOJSLrz8XS.jpg)"></div>-->
-<!--                    <div class="px-4">-->
-<!--                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,-->
-<!--                            there live the blind texts.</p>-->
-<!--                    </div>-->
-<!--                    <p class="button text-center"><a href="#" class="btn btn-primary px-4 py-3">Take A Course</a></p>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
+        <div class="row text-center" id="songs" style="display: none;">
+            <div class="col-md-12 mb-5" style="background-color: #6B757D;">
+                <h1 class="text-center text-light heading-font" id="emotion-name"></h1>
+            </div>
+        </div>
     </div>
 </section>
 <section class="ftco-gallery">
@@ -145,9 +146,10 @@
                             <li><span class="icon icon-map-marker"></span><span class="text">GIFT University, near GIFT University Chowk, Lohian Wala, Gujranwala, Punjab 52250</span>
                             </li>
                             <li><a href="#"><span class="icon icon-phone"></span><span
-                                            class="text">+92 300 1234567</span></a></li>
-                            <li><a href="mailto:181370137@gift.edu.pk"><span class="icon icon-envelope"></span><span class="text"><span
-                                                class="__cf_email__" data-cfemail="f39a9d959cb38a9c8681979c9e929a9ddd909c9e">181370137@gift.edu.pk</span></span></a>
+                                    class="text">+92 300 1234567</span></a></li>
+                            <li><a href="mailto:181370137@gift.edu.pk"><span class="icon icon-envelope"></span><span
+                                    class="text"><span
+                                    class="__cf_email__" data-cfemail="f39a9d959cb38a9c8681979c9e929a9ddd909c9e">181370137@gift.edu.pk</span></span></a>
                             </li>
                         </ul>
                     </div>
@@ -158,8 +160,10 @@
                     <h2 class="ftco-heading-2">Links</h2>
                     <ul class="list-unstyled">
                         <li><a href="index.html"><span class="ion-ios-arrow-round-forward mr-2"></span>Home</a></li>
-                        <li><a href="click-predict.html"><span class="ion-ios-arrow-round-forward mr-2"></span>Click & Predict</a></li>
-                        <li><a href="monitoring.html"><span class="ion-ios-arrow-round-forward mr-2"></span>Monitoring</a></li>
+                        <li><a href="click-predict.html"><span class="ion-ios-arrow-round-forward mr-2"></span>Click &
+                            Predict</a></li>
+                        <li><a href="monitoring.html"><span
+                                class="ion-ios-arrow-round-forward mr-2"></span>Monitoring</a></li>
                         <li><a href="blog.html"><span class="ion-ios-arrow-round-forward mr-2"></span>Contact</a></li>
                         <li><a href="music.html"><span class="ion-ios-arrow-round-forward mr-2"></span>Contact</a></li>
                         <li><a href="about.html"><span class="ion-ios-arrow-round-forward mr-2"></span>About</a></li>
@@ -184,18 +188,18 @@
 <script>
     let stream = null;
     let image_data_url = null
-    let fileData = null;
+    let pred_index = null;
     let predictions = [0, 0, 0, 0, 0, 0];
-    let detections = [0, 0];
+    let sum = 0;
     let camera_button = document.querySelector("#start-camera");
     let video = document.querySelector("#video");
     let click_button = document.querySelector("#click-photo");
     let canvas = document.querySelector("#canvas");
     let twoD = canvas.getContext('2d');
-    let check_expression = document.querySelector("#check-expression")
+    let check_expression = document.querySelector("#check-expression");
     let photo = document.getElementById('photo');
     let class_labels = ['Disgust', 'Angry', 'Happy', 'Sad', 'Surprise', 'Neutral']
-    let drowsy = ['Active','Drowsy']
+    let drowsy = ['Active', 'Drowsy'];
 
     camera_button.addEventListener('click', async function () {
         document.getElementById("vide-sec").style.display = "block";
@@ -203,19 +207,19 @@
         stream = await navigator.mediaDevices.getUserMedia({video: true, audio: false});
         video.srcObject = stream;
     });
-
     click_button.addEventListener('click', function () {
         document.getElementById("div-canvas").style.display = "block";
         twoD.drawImage(video, 0, 0, canvas.width, canvas.height);
         image_data_url = canvas.toDataURL('image/jpeg').replace("image/png", "image/octet-stream");
         stream.getTracks()[0].stop();
-        document.getElementById("vide-sec").style.display = "none"
+        document.getElementById("vide-sec").style.display = "none";
     });
     check_expression.addEventListener('click', function () {
-        document.getElementById("loader").style.display="block";
+        document.getElementById("loader").style.display = "block";
+        document.getElementById("div-canvas").style.display = "block";
         const blob = dataURItoBlob(image_data_url);
-        const data = sendData("http://44.202.103.173:8000/api/getfaceslist/", blob);
-        let pred_index = predictions.indexOf(Math.max(...predictions));
+        const data = sendData("http://3.83.83.216:8000/api/getfaceslist/", blob);
+
     });
 
 
@@ -239,6 +243,28 @@
         return new Blob([ia], {type: mimeString});
     }
 
+    function suggestMusic() {
+        $.get('files/songs.csv', function (data) {
+            console.log("here");
+            let html = '';
+            let rows = data.split("\n");
+            rows.forEach(function getvalues(ourrow) {
+                let columns = ourrow.split(",");
+                if (columns[0] != null && columns[0] !== "" && columns[1] === String(pred_index)) {
+                    console.log(columns[0]);
+                    html += '<div class="col-md-6 col-lg-4 mb-2"> ' +
+                        '<iframe width="400" height="300"src="' + columns[0] + '"';
+                    html += 'title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; ' +
+                        'encrypted-media; gyroscope; picture-in-picture" allowFullScreen>  ' +
+                        '</iframe></div>';
+                }
+            })
+            $('#songs').append(html);
+        });
+
+    }
+
+
     async function sendData(url, data) {
         const formData = new FormData();
         formData.append("image", data);
@@ -251,15 +277,18 @@
             body: formData
         }).then(r =>
             r.json()
-        ).then(d=>{
-            console.log(d);
-            document.getElementById("loader").style.display="none";
-            for(var i=0;i<d.length;i++){
+        ).then(d => {
+            document.getElementById("loader").style.display = "none";
+            for (var i = 0; i < d.length; i++) {
                 pred = d[i].pred;
-                detc = d[i].detc;
                 predictions[pred] += 1;
-                detections[detc] += 1;
             }
+            pred_index = predictions.indexOf(Math.max(...predictions));
+            sum = predictions.reduce((pv, cv) => pv + cv, 0);
+            document.getElementById("songs").style.display = "block";
+            document.getElementById("div-canvas").style.display = "none";
+            document.getElementById("emotion-name").innerHTML = "Songs for " + class_labels[pred_index] + " mood";
+            suggestMusic();
         });
     }
 </script>

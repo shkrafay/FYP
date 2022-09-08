@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../addLife/.idea/addLife.iml" filepath="$PROJECT_DIR$/../addLife/.idea/addLife.iml" />
       <module fileurl="file://$PROJECT_DIR$/../hsra/.idea/hsra.iml" filepath="$PROJECT_DIR$/../hsra/.idea/hsra.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/kiddos.iml" filepath="$PROJECT_DIR$/.idea/kiddos.iml" />
     </modules>

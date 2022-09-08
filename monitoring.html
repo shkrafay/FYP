@@ -248,7 +248,7 @@
                 twoD.drawImage(video, 0, 0, canvas.width, canvas.height);
                 image_data_url = canvas.toDataURL('image/jpeg').replace("image/png", "image/octet-stream");
                 const blob = dataURItoBlob(image_data_url);
-                const data = sendData("http://44.202.103.173:8000/api/getfaceslist/", blob);
+                const data = sendData("https://3.83.83.216:8000/api/getfaceslist/", blob);
             }, 10000);
         });
 
@@ -261,7 +261,6 @@
                 for (let i = 0; i < predictions.length; i++) {
                     if (predictions[i] > 0) {
                         document.getElementById(class_labels[i]).innerHTML = ('0' + predictions[i]).slice(-2);
-                        document.getElementById(class_labels[i]).innerHTML = ('<br>'+ (predictions/sum)*100 +'%');
                     }
                 }
                 for (let i = 0; i < detections.length; i++) {
@@ -271,9 +270,9 @@
                 }
                 document.getElementById("total-faces").innerHTML = sum;
                 let pred_index = predictions.indexOf(Math.max(...predictions));
-                document.getElementById("dominated-emotion").innerHTML = class_labels[pred_index];
+                document.getElementById("dominated-emotion").innerHTML = class_labels[pred_index] + "<br>" + Math.round(predictions[pred_index] / sum * 100) + "%";
                 let drowsy_index = detections.indexOf(Math.max(...detections));
-                document.getElementById("dominated-energy").innerHTML = drowsy[drowsy_index];
+                document.getElementById("dominated-energy").innerHTML = drowsy[drowsy_index] + "<br>" + Math.round(detections[drowsy_index] / sum * 100) + "%";
                 document.getElementById('results').style.display = "block";
             } else {
                 document.getElementById('results').style.display = "none";

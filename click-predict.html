@@ -161,7 +161,7 @@
                         <div class="output">
                             <img id="photo" alt="The screen capture will appear in this box.">
                         </div>
-                    </canvas><p style="display: none" id="loader">loading...</p>
+                    </canvas><img style="display: none;width:200px;height:200px;" id="loader" src="images/Loading_icon.gif" alt="Loading">
 
                     <button style="position: absolute; object-fit: cover; margin-left: -300px; margin-top: 306px"
                             class="text-center btn btn-tertiary px-3" id="check-expression">Check Expressions
@@ -203,7 +203,7 @@
         check_expression.addEventListener('click', function () {
             document.getElementById("loader").style.display="block";
             const blob = dataURItoBlob(image_data_url);
-            const data = sendData("http://44.202.103.173:8000/api/getfaceslist/", blob);
+            const data = sendData("https://3.83.83.216:8000/api/getfaceslist/", blob);
             console.log(data);
         });
 
