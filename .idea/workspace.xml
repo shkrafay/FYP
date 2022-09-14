@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="59d2ed1b-634d-4176-9bfe-047430c2e85a" name="Default Changelist" comment="Hamad">
-      <change afterPath="$PROJECT_DIR$/files/songs.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/Loading_icon.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/click-predict.html" beforeDir="false" afterPath="$PROJECT_DIR$/click-predict.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/monitoring.html" beforeDir="false" afterPath="$PROJECT_DIR$/monitoring.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/music.html" beforeDir="false" afterPath="$PROJECT_DIR$/music.html" afterDir="false" />
     </list>
@@ -69,6 +69,12 @@
       <workItem from="1661410339488" duration="7393000" />
       <workItem from="1662194647138" duration="14925000" />
       <workItem from="1662377566649" duration="5000" />
+      <workItem from="1662715863742" duration="2559000" />
+      <workItem from="1662719065442" duration="5982000" />
+      <workItem from="1662725991643" duration="5813000" />
+      <workItem from="1663140948919" duration="4821000" />
+      <workItem from="1663145933613" duration="899000" />
+      <workItem from="1663146866367" duration="321000" />
     </task>
     <task id="LOCAL-00001" summary="hamad">
       <created>1656744492411</created>

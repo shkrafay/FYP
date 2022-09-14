@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="css/style.css"/>
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css"
           rel="stylesheet"  type='text/css'>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco_navbar ftco-navbar-light" id="ftco-navbar">
@@ -27,7 +29,7 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a href="index.html" class="nav-link pl-0">Home</a></li>
                 <li class="nav-item"><a href="click-predict.html" class="nav-link">Click & Predict</a></li>
-                <li class="nav-item"><a href="monitoring.html" class="nav-link">Intelligent Monitoring</a></li>
+                <li class="nav-item active"><a href="monitoring.html" class="nav-link">Intelligent Monitoring</a></li>
                 <li class="nav-item"><a href="music.html" class="nav-link">Music for Mood</a></li>
                 <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
                 <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
@@ -239,17 +241,28 @@
         let class_labels = ['Disgust', 'Angry', 'Happy', 'Sad', 'Surprise', 'Neutral']
         let drowsy = ['Active', 'Drowsy']
         camera_button.addEventListener('click', async function () {
-            document.getElementById("vide-sec").style.display = "block";
-            document.getElementById("initial-btns").style.display = "none";
-            stream = await navigator.mediaDevices.getUserMedia({video: true, audio: false});
-            video.srcObject = stream;
-            interval = setInterval(function () {
-                // total_time+=10000;
-                twoD.drawImage(video, 0, 0, canvas.width, canvas.height);
-                image_data_url = canvas.toDataURL('image/jpeg').replace("image/png", "image/octet-stream");
-                const blob = dataURItoBlob(image_data_url);
-                const data = sendData("https://3.83.83.216:8000/api/getfaceslist/", blob);
-            }, 10000);
+            navigator.getMedia = ( navigator.getUserMedia || // use the proper vendor prefix
+                navigator.webkitGetUserMedia ||
+                navigator.mozGetUserMedia ||
+                navigator.msGetUserMedia);
+
+            navigator.getMedia({video: true}, async function() {
+                // webcam is available
+                document.getElementById("vide-sec").style.display = "block";
+                document.getElementById("initial-btns").style.display = "none";
+                stream = await navigator.mediaDevices.getUserMedia({video: true, audio: false});
+                video.srcObject = stream;
+                interval = setInterval(function () {
+                    // total_time+=10000;
+                    twoD.drawImage(video, 0, 0, canvas.width, canvas.height);
+                    image_data_url = canvas.toDataURL('image/jpeg').replace("image/png", "image/octet-stream");
+                    const blob = dataURItoBlob(image_data_url);
+                    const data = sendData("http://44.202.24.183:8000/api/getfaceslist/", blob);
+                }, 10000);
+            }, function() {
+                // webcam is not available
+                swal("Oh Snap!", "Camera is not available!", "error");
+            });
         });
 
         stop_button.addEventListener('click', function () {
