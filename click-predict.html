@@ -12,10 +12,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Distressed&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css"/>
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css"
-          rel="stylesheet"  type='text/css'>
+          rel="stylesheet" type='text/css'>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
+
+
+        @media only screen and (max-width: 650px) {
+            #vide-sec, #div-canvas {
+                overflow-x: scroll;
+                overflow-y: hidden;
+            }
+            #check-expression, #click-photo{
+                top: 90%!important;
+            }
+        }
+        #check-expression, #click-photo{
+            z-index: 9999;
+            position: absolute;
+            top: 100%; left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+
         spinner-border {
 
         to {
@@ -116,194 +135,202 @@
     </div>
 </nav>
 
-    <section class="hero-wrap hero-wrap-2" style="background-image:url(images/selfie-1.jpg)">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row no-gutters slider-text align-items-center justify-content-center">
-                <div class="col-md-9 ftco-animate text-center">
-                    <h1 class="mb-2 bread">Click & Predict</h1>
-                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i
-                                        class="ion-ios-arrow-forward"></i></a></span> <a href="click-predict.html"><span>Predict <i
-                                        class="ion-ios-arrow-forward"></i></span></a></p>
-                </div>
+<section class="hero-wrap hero-wrap-2" style="background-image:url(images/selfie-1.jpg)">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <h1 class="mb-2 bread">Click & Predict</h1>
+                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i
+                        class="ion-ios-arrow-forward"></i></a></span> <a href="click-predict.html"><span>Predict <i
+                        class="ion-ios-arrow-forward"></i></span></a></p>
             </div>
         </div>
-    </section>
-    <section class="ftco-section ftco-no-pb">
-        <div class="container mb-5">
-            <div class="row">
-                <div class="col-md-12 text-center" id="vide-sec" style="display: none;">
-                    <video style="position: relative" id="video" width="450" height="350" autoplay></video>
-                    <button style="position: absolute; object-fit: cover; margin-left: -280px; margin-top: 300px"
-                            class="text-center btn btn-tertiary px-3" id="click-photo">Click Photo
-                    </button>
-                </div>
-                <div class="col-md-12 mb-5">
-                    <div class="row" id="initial-btns">
-                        <div class="col-md-6 mb-3">
-                            <button class="text-center btn btn-primary px-4 py-2 float-lg-right" id="start-camera">Take
-                                an Image
-                            </button>
-                        </div>
-                        <style>
-                            input[type="file"] {
-                                display: none;
-                            }
-                        </style>
-                        <div class="col-md-6 mb-3">
-                            <label class="text-center btn btn-secondary px-4 py-2" >
-                                <input type="file" id="imageLoader" name="imageLoader" accept="image/png, image/gif, image/jpeg">
-                                <i class="fa fa-cloud-upload"></i> Custom Upload
-                            </label>
-                        </div>
+    </div>
+</section>
+<section class="ftco-section ftco-no-pb">
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col-md-12 text-center" id="vide-sec" style="display: none;">
+                <video style="position: relative; " id="video" height="480" width="640" autoplay></video>
+                <button style=""
+                        class="text-center btn btn-tertiary px-3" id="click-photo">Click Photo
+                </button>
+            </div>
+            <div class="col-md-12 mb-5">
+                <div class="row" id="initial-btns">
+                    <div class="col-md-6 mb-3">
+                        <button class="text-center btn btn-primary px-4 py-2 float-lg-right" id="start-camera">Take
+                            an Image
+                        </button>
+                    </div>
+                    <style>
+                        input[type="file"] {
+                            display: none;
+                        }
+                    </style>
+                    <div class="col-md-6 mb-3">
+                        <label class="text-center btn btn-secondary px-4 py-2">
+                            <input type="file" id="imageLoader" name="imageLoader"
+                                   accept="image/png, image/gif, image/jpeg">
+                            <i class="fa fa-cloud-upload"></i> Custom Upload
+                        </label>
                     </div>
                 </div>
-                <div class="col-12 mb-5" id="div-canvas" style="display: none; margin-left: auto; margin-right: auto; ">
-                    <canvas id="canvas" style="position: relative" width="450" height="350">
-                        <div class="output">
-                            <img id="photo" alt="The screen capture will appear in this box.">
-                        </div>
-                    </canvas><img style="display: none;width:200px;height:200px;" id="loader" src="images/Loading_icon.gif" alt="Loading">
-
-                    <button style="position: absolute; object-fit: cover; margin-left: -300px; margin-top: 306px"
-                            class="text-center btn btn-tertiary px-3" id="check-expression">Check Expressions
-                    </button>
-                </div>
-                <span id="res"></span>
             </div>
+            <div class="col-12 mb-5" id="div-canvas" style="display: none; margin-left: auto; margin-right: auto; ">
+                <canvas id="canvas" height="480" width="640" style="position: relative;">
+                    <div class="output">
+                        <img id="photo" alt="The screen capture will appear in this box.">
+                    </div>
+                </canvas>
+                <img style="z-index: 9999; position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%); display: none; width:200px;"
+                     id="loader" src="images/Loading_icon.gif" alt="Loading">
+
+                <button style=""
+                        class="text-center btn btn-tertiary px-3" id="check-expression">Check Expressions
+                </button>
+            </div>
+            <span id="res"></span>
         </div>
-    </section>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>
-        let stream = null;
-        let image_data_url = null
-        let fileData = null;
-        let camera_button = document.querySelector("#start-camera");
-        let imageLoader = document.getElementById('imageLoader');
-        let video = document.querySelector("#video");
-        let click_button = document.querySelector("#click-photo");
-        let canvas = document.querySelector("#canvas");
-        let twoD = canvas.getContext('2d');
-        let check_expression = document.querySelector("#check-expression")
-        let photo = document.getElementById('photo');
-        let class_labels = ['Disgust', 'Angry', 'Happy', 'Sad', 'Surprise', 'Neutral']
-        let drowsy = ['Active','Drowsy']
+    </div>
+</section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+    let stream = null;
+    let image_data_url = null;
+    let fileData = null;
+    let camera_button = document.querySelector("#start-camera");
+    let imageLoader = document.getElementById('imageLoader');
+    let video = document.querySelector("#video");
+    let click_button = document.querySelector("#click-photo");
+    let canvas = document.querySelector("#canvas");
+    let twoD = canvas.getContext('2d');
+    let check_expression = document.querySelector("#check-expression");
+    let photo = document.getElementById('photo');
+    let class_labels = ['Disgust', 'Angry', 'Happy', 'Sad', 'Surprise', 'Neutral'];
+    let drowsy = ['Active', 'Drowsy'];
 
-        imageLoader.addEventListener('change', handleImage, false);
+    var input = document.querySelector('input[type="file"]');
+    imageLoader.addEventListener('change', handleImage, false);
 
-        camera_button.addEventListener('click', async function () {
-            navigator.getMedia = ( navigator.getUserMedia || // use the proper vendor prefix
-                navigator.webkitGetUserMedia ||
-                navigator.mozGetUserMedia ||
-                navigator.msGetUserMedia);
+    camera_button.addEventListener('click', async function () {
+        navigator.getMedia = (navigator.getUserMedia || // use the proper vendor prefix
+            navigator.webkitGetUserMedia ||
+            navigator.mozGetUserMedia ||
+            navigator.msGetUserMedia);
 
-            navigator.getMedia({video: true}, async function() {
-                // webcam is available
-                document.getElementById("vide-sec").style.display = "block";
-                document.getElementById("initial-btns").style.display = "none";
-                stream = await navigator.mediaDevices.getUserMedia({video: true, audio: false});
-                video.srcObject = stream;
-            }, function() {
-                // webcam is not available
-                swal("Oh Snap!", "Camera is not available!", "error");
-            });
+        navigator.getMedia({video: true}, async function () {
+            // webcam is available
+            document.getElementById("vide-sec").style.display = "block";
+            document.getElementById("initial-btns").style.display = "none";
+            stream = await navigator.mediaDevices.getUserMedia({video: true, audio: false});
+            video.srcObject = stream;
+        }, function () {
+            // webcam is not available
+            swal("Oh Snap!", "Camera is not available!", "error");
         });
+    });
 
-        click_button.addEventListener('click', function () {
-            document.getElementById("div-canvas").style.display = "block";
-            twoD.drawImage(video, 0, 0, canvas.width, canvas.height);
-            // document.body.appendChild(canvas); //picture gets uploaded
-            image_data_url = canvas.toDataURL('image/jpeg');
-            // console.log("Here: "+image_data_url);
-            stream.getTracks()[0].stop();
-            document.getElementById("vide-sec").style.display = "none"
-        });
 
-        check_expression.addEventListener('click', function () {
-            document.getElementById("loader").style.display="block";
-            if (image_data_url!= null || image_data_url!== "") {
-                const blob = dataURItoBlob(image_data_url);
-                const data = sendData("http://44.202.24.183:8000/api/getfaceslist/", blob);
-            } else {
-                swal("Oh Snap!", "Please take a photo first!", "error");
+
+
+
+    click_button.addEventListener('click', function () {
+        document.getElementById("div-canvas").style.display = "block";
+        twoD.drawImage(video, 0, 0, canvas.width, canvas.height);
+        // document.body.appendChild(canvas); //picture gets uploaded
+        image_data_url = canvas.toDataURL('image/jpeg');
+        // console.log("Here: "+image_data_url);
+        stream.getTracks()[0].stop();
+        document.getElementById("vide-sec").style.display = "none"
+    });
+
+    check_expression.addEventListener('click', function () {
+        document.getElementById("loader").style.display = "block";
+        if (image_data_url != null || image_data_url !== "") {
+            const blob = dataURItoBlob(image_data_url);
+            const data = sendData("https://ferapi.herokuapp.com/api/getfaceslist/", blob);
+        } else {
+            swal("Oh Snap!", "Please take a photo first!", "error");
+        }
+        // console.log(data);
+    });
+
+
+    function handleImage(e) {
+        document.getElementById("div-canvas").style.display = "block";
+        var reader = new FileReader();
+        reader.onload = function (event) {
+            var img = new Image();
+            var ratioX = canvas.width;
+            var ratioY = canvas.height;
+            img.onload = function () {
+                twoD.drawImage(img, 0, 0, ratioX, ratioY);
+                image_data_url = canvas.toDataURL('image/jpeg');
             }
-            // console.log(data);
-        });
+            img.src = event.target.result;
+        }
+        reader.readAsDataURL(e.target.files[0]);
 
+    }
 
-        function handleImage(e){
-            document.getElementById("div-canvas").style.display = "block";
-            var reader = new FileReader();
-            reader.onload = function(event){
-                var img = new Image();
-                var ratioX = canvas.width;
-                var ratioY = canvas.height;
-                img.onload = function(){
-                    twoD.drawImage(img, 0, 0, ratioX, ratioY);
-                    image_data_url = canvas.toDataURL('image/jpeg');
-                }
-                img.src = event.target.result;
-            }
-            reader.readAsDataURL(e.target.files[0]);
+    function dataURItoBlob(dataURI) {
+        // convert base64/URLEncoded data component to raw binary data held in a string
+        var byteString;
+        if (dataURI.split(',')[0].indexOf('base64') >= 0)
+            byteString = atob(dataURI.split(',')[1]);
+        else
+            byteString = unescape(dataURI.split(',')[1]);
 
+        // separate out the mime component
+        var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+
+        // write the bytes of the string to a typed array
+        var ia = new Uint8Array(byteString.length);
+        for (var i = 0; i < byteString.length; i++) {
+            ia[i] = byteString.charCodeAt(i);
         }
 
-        function dataURItoBlob(dataURI) {
-            // convert base64/URLEncoded data component to raw binary data held in a string
-            var byteString;
-            if (dataURI.split(',')[0].indexOf('base64') >= 0)
-                byteString = atob(dataURI.split(',')[1]);
-            else
-                byteString = unescape(dataURI.split(',')[1]);
+        return new Blob([ia], {type: mimeString});
+    }
 
-            // separate out the mime component
-            var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+    async function sendData(url, data) {
+        const formData = new FormData();
+        formData.append("image", data);
 
-            // write the bytes of the string to a typed array
-            var ia = new Uint8Array(byteString.length);
-            for (var i = 0; i < byteString.length; i++) {
-                ia[i] = byteString.charCodeAt(i);
+        await fetch(url, {
+            dataType: 'file',
+            contentType: 'multipart/form-data',
+            processData: false,
+            method: 'POST',
+            body: formData
+        }).then(r =>
+            r.json()
+        ).then(d => {
+            // console.log(d);
+            // const prev=JSON.parse(localStorage.getItem("image"))
+            // localStorage.setItem("image",JSON.stringify([...prev,...d]))
+
+            document.getElementById("loader").style.display = "none";
+            for (var i = 0; i < d.length; i++) {
+                let pred = class_labels[d[i]?.pred]
+                let detc = drowsy[d[i]?.detc]
+                let x = d[i]?.coord?.x;
+                let y = d[i]?.coord?.y
+                let w = d[i]?.coord?.w;
+                let h = d[i]?.coord?.h;
+                twoD.font = "bold 18px verdana, sans-serif "
+                twoD.fillStyle = "#ff0000";
+                twoD.fillText(`${pred}, ${detc}`, x, y);
+                twoD.beginPath();
+                twoD.rect(x, y, w, h);
+                twoD.strokeStyle = '#00FF00';
+                twoD.stroke();
             }
-
-            return new Blob([ia], {type: mimeString});
-        }
-
-        async function sendData(url, data) {
-            const formData = new FormData();
-            formData.append("image", data);
-
-            await fetch(url, {
-                dataType: 'file',
-                contentType: 'multipart/form-data',
-                processData: false,
-                method: 'POST',
-                body: formData
-            }).then(r =>
-                r.json()
-            ).then(d=>{
-                // console.log(d);
-                // const prev=JSON.parse(localStorage.getItem("image"))
-                // localStorage.setItem("image",JSON.stringify([...prev,...d]))
-
-                document.getElementById("loader").style.display="none";
-                for(var i=0;i<d.length;i++){
-                    let pred = class_labels[d[i]?.pred]
-                    let detc = drowsy[d[i]?.detc]
-                    let x = d[i]?.coord?.x;
-                    let y = d[i]?.coord?.y
-                    let w = d[i]?.coord?.w;
-                    let h = d[i]?.coord?.h;
-                    twoD.font = "bold 18px verdana, sans-serif "
-                    twoD.fillStyle = "#ff0000";
-                    twoD.fillText(`${pred}, ${detc}`, x, y);
-                    twoD.beginPath();
-                    twoD.rect(x, y, w, h);
-                    twoD.strokeStyle ='#00FF00';
-                    twoD.stroke();
-                }
-            });
-        }
-    </script>
+        });
+    }
+</script>
 <section class="ftco-gallery">
     <div class="container-wrap">
         <div class="row no-gutters">
@@ -341,8 +368,9 @@
                             <li><span class="icon icon-map-marker"></span><span class="text">GIFT University, near GIFT University Chowk, Lohian Wala, Gujranwala, Punjab 52250</span>
                             </li>
                             <li><a href="#"><span class="icon icon-phone"></span><span
-                                            class="text">+92 300 1234567</span></a></li>
-                            <li><a href="mailto:181370137@gift.edu.pk"><span class="icon icon-envelope"></span><span class="text"><span
+                                    class="text">+92 300 1234567</span></a></li>
+                            <li><a href="mailto:181370137@gift.edu.pk"><span class="icon icon-envelope"></span><span
+                                    class="text"><span
                                     class="__cf_email__" data-cfemail="f39a9d959cb38a9c8681979c9e929a9ddd909c9e">181370137@gift.edu.pk</span></span></a>
                             </li>
                         </ul>
@@ -354,8 +382,10 @@
                     <h2 class="ftco-heading-2">Links</h2>
                     <ul class="list-unstyled">
                         <li><a href="index.html"><span class="ion-ios-arrow-round-forward mr-2"></span>Home</a></li>
-                        <li><a href="click-predict.html"><span class="ion-ios-arrow-round-forward mr-2"></span>Click & Predict</a></li>
-                        <li><a href="monitoring.html"><span class="ion-ios-arrow-round-forward mr-2"></span>Monitoring</a></li>
+                        <li><a href="click-predict.html"><span class="ion-ios-arrow-round-forward mr-2"></span>Click &
+                            Predict</a></li>
+                        <li><a href="monitoring.html"><span
+                                class="ion-ios-arrow-round-forward mr-2"></span>Monitoring</a></li>
                         <li><a href="blog.html"><span class="ion-ios-arrow-round-forward mr-2"></span>Contact</a></li>
                         <li><a href="music.html"><span class="ion-ios-arrow-round-forward mr-2"></span>Contact</a></li>
                         <li><a href="about.html"><span class="ion-ios-arrow-round-forward mr-2"></span>About</a></li>

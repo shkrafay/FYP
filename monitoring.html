@@ -38,6 +38,17 @@
     </div>
 </nav>
 <style>
+
+    @media only screen and (max-width: 650px) {
+        #vide-sec, #div-canvas {
+            overflow-x: scroll;
+            overflow-y: hidden;
+        }
+        #check-expression{
+            top: 90%!important;
+        }
+    }
+
         .center-items {
             margin-right: auto;
             margin-left: auto;
@@ -93,8 +104,8 @@
         <div class="container mb-5">
             <div class="row">
                 <div class="col-md-12 text-center" id="vide-sec" style="display: none;">
-                    <video style="position: relative" id="video" width="450" height="350" autoplay></video>
-                    <button style="position: absolute; object-fit: cover; margin-left: -280px; margin-top: 300px"
+                    <video style="position: relative" id="video" width="640" height="480" autoplay></video>
+                    <button style="z-index: 9999; position: absolute; top: 100%; left: 50%; transform: translate(-50%, -50%);"
                             class="text-center btn btn-tertiary px-3" id="stop-btn">Stop & Analyze
                     </button>
                 </div>
@@ -111,13 +122,13 @@
                     </div>
                     <div class="col-12 mb-5" id="div-canvas"
                          style="display: none; margin-left: auto; margin-right: auto; ">
-                        <canvas id="canvas" style="position: relative" width="450" height="350">
+                        <canvas id="canvas" style="position: relative" width="640" height="480">
                             <div class="output">
                                 <img id="photo" alt="The screen capture will appear in this box.">
                             </div>
                         </canvas>
 
-                        <button style="position: absolute; object-fit: cover; margin-left: -300px; margin-top: 306px"
+                        <button style="z-index: 9999; position: absolute; top: 100%; left: 50%; transform: translate(-50%, -50%);"
                                 class="text-center btn btn-tertiary px-3" id="check-expression">Check Expressions
                         </button>
                     </div>
@@ -257,7 +268,7 @@
                     twoD.drawImage(video, 0, 0, canvas.width, canvas.height);
                     image_data_url = canvas.toDataURL('image/jpeg').replace("image/png", "image/octet-stream");
                     const blob = dataURItoBlob(image_data_url);
-                    const data = sendData("http://44.202.24.183:8000/api/getfaceslist/", blob);
+                    const data = sendData("https://ferapi.herokuapp.com/api/getfaceslist/", blob);
                 }, 10000);
             }, function() {
                 // webcam is not available

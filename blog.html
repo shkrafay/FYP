@@ -149,17 +149,17 @@
                 else if (columns[1] != null) {
                     html += '<div class="col-md-6 col-lg-4"> ' +
                         '<div class="blog-entry card" style="height:75%"> ' +
-                        '<a href="#" class="block-20 d-flex align-items-end" style="background-image:url(';
-                    if (columns[4] == null || columns[4].length < 10) {
+                        '<a href="'+ columns[2] + '" class="block-20 d-flex align-items-end" style="background-image:url(';
+                    if (columns[5] == null || columns[5].length < 10) {
                         html += 'images/img-rep.jpg)"></a>';
                     } else {
-                        html += columns[4] + ')"></a>';
+                        html += columns[5] + ')"></a>';
                     }
                     html += '<div class="text bg-white p-4"> ' +
-                        '<h3 class="heading"><a href="#">' + columns[1] + '</a>' +
+                        '<h3 class="heading"><a href="'+ columns[2] + '">' + columns[1] + '</a>' +
                         '</h3> ' +
                         '<p>';
-                    html += String(columns[2]).slice(0, 200) + '... </p>';
+                    html += String(columns[3]).slice(0, 200) + '... </p>';
                     html += '<div class="d-flex align-items-center mt-4"> ' +
                         '<p class="mb-0 font-weight-bold">Writer:</p>' +
                         ' <p class="ml-auto mb-0"> <span class="mr-2">' + String(columns[0]) + '</span> </p>';

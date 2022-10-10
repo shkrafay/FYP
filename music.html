@@ -16,6 +16,23 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
+
+        @media only screen and (max-width: 650px) {
+            #vide-sec, #div-canvas {
+                overflow-x: scroll;
+                overflow-y: hidden;
+            }
+            #check-expression, #click-photo{
+                top: 90%!important;
+            }
+        }
+        #check-expression, #click-photo{
+            z-index: 9999;
+            position: absolute;
+            top: 100%; left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
         .heading-font {
             font-family: 'Rubik Distressed', cursive;
             color: white
@@ -64,9 +81,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center" id="vide-sec" style="display: none;">
-                <video style="position: relative" id="video" width="450" height="350" autoplay></video>
-                <button style="position: absolute; object-fit: cover; margin-left: -280px; margin-top: 300px"
-                        class="text-center btn btn-tertiary px-3" id="click-photo">Click Photo
+                <video style="position: relative" id="video" width="640" height="480" autoplay></video>
+                <button class="text-center btn btn-tertiary px-3" id="click-photo">Click Photo
                 </button>
             </div>
             <div class="col-md-12 mb-5">
@@ -91,22 +107,22 @@
                 </div>
             </div>
             <div class="col-12 mb-5" id="div-canvas" style="display: none; margin-left: auto; margin-right: auto; ">
-                <canvas id="canvas" style="position: relative" width="450" height="350">
+                <canvas id="canvas" style="position: relative" width="640" height="480">
                     <div class="output">
                         <img id="photo" alt="The screen capture will appear in this box.">
                     </div>
                 </canvas>
-                <img style="display: none;width:200px;height:200px;" id="loader" src="images/Loading_icon.gif"
+                <img style="z-index: 9999; position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%); display: none; width:200px;"
+                     id="loader" src="images/Loading_icon.gif"
                      alt="Loading">
-                <button style="position: absolute; object-fit: cover; margin-left: -300px; margin-top: 306px"
-                        class="text-center btn btn-tertiary px-3" id="check-expression">Check Expressions
+                <button class="text-center btn btn-tertiary px-3" id="check-expression">Check Expressions
                 </button>
             </div>
         </div>
-        <div class="row text-center" id="songs" style="display: none;">
-            <div class="col-md-12 col-lg-12 mb-5" style="background-color: #6B757D;">
-                <h1 class="text-center text-light heading-font" id="emotion-name"></h1>
-            </div>
+        <div class="row" id="emotion-header" style="background-color: #6B757D; display: none;">
+            <h1 class="text-center text-light heading-font" id="emotion-name"></h1>
+        </div>
+        <div class="row" id="songs" style="display: none;">
         </div>
     </div>
 </section>
@@ -166,8 +182,9 @@
                             Predict</a></li>
                         <li><a href="monitoring.html"><span
                                 class="ion-ios-arrow-round-forward mr-2"></span>Monitoring</a></li>
-                        <li><a href="blog.html"><span class="ion-ios-arrow-round-forward mr-2"></span>Contact</a></li>
-                        <li><a href="music.html"><span class="ion-ios-arrow-round-forward mr-2"></span>Contact</a></li>
+                        <li><a href="blog.html"><span class="ion-ios-arrow-round-forward mr-2"></span>Blog</a></li>
+                        <li><a href="music.html"><span class="ion-ios-arrow-round-forward mr-2"></span>Music for
+                            Mood</a></li>
                         <li><a href="about.html"><span class="ion-ios-arrow-round-forward mr-2"></span>About</a></li>
                     </ul>
                 </div>
@@ -235,11 +252,10 @@
         document.getElementById("div-canvas").style.display = "block";
         if (image_data_url != null || image_data_url !== "") {
             const blob = dataURItoBlob(image_data_url);
-            const data = sendData("http://44.202.24.183:8000/api/getfaceslist/", blob);
+            const data = sendData("https://ferapi.herokuapp.com/api/getfaceslist/", blob);
         } else {
             swal("Oh Snap!", "Please take a photo first!", "error");
         }
-
     });
 
     function handleImage(e) {
@@ -288,17 +304,18 @@
             rows.forEach(function getvalues(ourrow) {
                 let columns = ourrow.split(",");
                 if (columns[0] != null && columns[0] !== "" && columns[1] === String(pred_index)) {
-                    console.log(columns[0]);
-                    html += '<div class="col-md-6 col-lg-4 mb-2"> ' +
-                        '<iframe width="350" height="300"src="' + columns[0] + '"';
-                    html += 'title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; ' +
-                        'encrypted-media; gyroscope; picture-in-picture" allowFullScreen>  ' +
-                        '</iframe></div>';
+                    // console.log(columns[0]);
+                    html += '<div class="col-md-4" >';
+                    html += '<iframe style="white-space:nowrap; font-size:0" width="100%" height="300px" src="';
+                    html += columns[0];
+                    html += '"';
+                    html += 'title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write;'
+                    html += 'encrypted-media; gyroscope; picture-in-picture" allowFullScreen>';
+                    html += '</iframe></div>';
                 }
                 // console.log(html);
             })
             $('#songs').append(html);
-
         });
 
     }
@@ -324,7 +341,8 @@
             }
             pred_index = predictions.indexOf(Math.max(...predictions));
             sum = predictions.reduce((pv, cv) => pv + cv, 0);
-            document.getElementById("songs").style.display = "block";
+            document.getElementById("songs").style.display = "flex";
+            document.getElementById("emotion-header").style.display = "block";
             document.getElementById("div-canvas").style.display = "none";
             document.getElementById("emotion-name").innerHTML = "Songs for " + class_labels[pred_index] + " mood";
             suggestMusic();
